@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Web3Academy — Learn the Digital Future</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     :root {
       --bg: #080c12;
       --surface: #0e1420;
@@ -14,9 +13,11 @@
       --accent: #00f5a0;
       --accent2: #0090ff;
       --accent3: #f5a623;
-      --text: #e8eef8;
-      --muted: #6b7fa3;
+      --text: #f0f4ff;
+      --muted: #9ab0d0;
       --glow: 0 0 40px rgba(0,245,160,0.15);
+      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,10 +27,10 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
       overflow-x: hidden;
-      visibility: visible;
-      opacity: 1;
     }
 
     /* Grid background */
@@ -60,7 +61,7 @@
     }
 
     .logo {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-weight: 700;
       font-size: 1.1rem;
       color: var(--accent);
@@ -112,7 +113,7 @@
     }
 
     .hero-tag {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.75rem;
       color: var(--accent);
       letter-spacing: 0.2em;
@@ -144,10 +145,10 @@
 
     .hero-sub {
       margin-top: 1.8rem;
-      font-size: 1.1rem;
-      color: var(--muted);
+      font-size: 1.15rem;
+      color: #b0c4e8;
       max-width: 520px;
-      line-height: 1.7;
+      line-height: 1.8;
       animation: fadeInUp 0.7s 0.2s ease both;
     }
 
@@ -235,7 +236,7 @@
       color: var(--muted);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
     }
 
     /* ===== SECTIONS ===== */
@@ -246,7 +247,7 @@
       margin-bottom: 4rem;
     }
     .section-tag {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.7rem;
       color: var(--accent);
       letter-spacing: 0.25em;
@@ -263,10 +264,10 @@
     .section-sub {
       margin-top: 1rem;
       color: var(--muted);
-      font-size: 1rem;
+      font-size: 1.05rem;
       max-width: 500px;
       margin-inline: auto;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ===== TRACK / KURIKULUM ===== */
@@ -311,7 +312,7 @@
       display: block;
     }
     .track-level {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -325,9 +326,9 @@
       letter-spacing: -0.01em;
     }
     .track-card p {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.7;
       margin-bottom: 1.5rem;
     }
     .track-topics {
@@ -337,7 +338,7 @@
     }
     .topic-tag {
       font-size: 0.7rem;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       border: 1px solid var(--border);
       color: var(--muted);
       padding: 0.25rem 0.55rem;
@@ -389,7 +390,7 @@
     }
 
     .timeline-week {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.7rem;
       color: var(--accent);
       letter-spacing: 0.15em;
@@ -402,9 +403,9 @@
       margin-bottom: 0.5rem;
     }
     .timeline-desc {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ===== TOOLS / TEKNOLOGI ===== */
@@ -443,7 +444,7 @@
       border: 1px solid var(--border);
       padding: 0.8rem 1.5rem;
       border-radius: 4px;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--muted);
       white-space: nowrap;
@@ -502,13 +503,13 @@
     .mentor-role {
       font-size: 0.75rem;
       color: var(--accent);
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       margin-bottom: 0.8rem;
     }
     .mentor-bio {
-      font-size: 0.82rem;
+      font-size: 0.92rem;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* ===== FAQ ===== */
@@ -530,7 +531,7 @@
       background: none;
       border: none;
       color: var(--text);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: var(--font-sans);
       font-size: 1rem;
       font-weight: 600;
       text-align: left;
@@ -557,9 +558,9 @@
     .faq-item.open .faq-answer { max-height: 300px; }
     .faq-answer p {
       padding-bottom: 1.4rem;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ===== CTA FOOTER ===== */
@@ -602,7 +603,7 @@
       justify-content: space-between;
     }
     .footer-logo {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-weight: 700;
       color: var(--accent);
       font-size: 0.9rem;
@@ -610,7 +611,7 @@
     .footer-copy {
       font-size: 0.78rem;
       color: var(--muted);
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
     }
 
     /* ===== ANIMATIONS ===== */
@@ -708,23 +709,23 @@
     }
     .founder-info { flex: 1; }
     .founder-name {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--accent);
       margin-bottom: 0.3rem;
     }
     .founder-role {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--muted);
       letter-spacing: 0.08em;
       margin-bottom: 1rem;
     }
     .founder-bio {
-      font-size: 0.92rem;
+      font-size: 0.97rem;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 1.5rem;
     }
     .founder-x-btn {
@@ -738,7 +739,7 @@
       border-radius: 4px;
       font-size: 0.82rem;
       font-weight: 600;
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
+      font-family: var(--font-mono);
       text-decoration: none;
       transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
     }
@@ -765,4 +766,21 @@
       <li><a href="#tech">Technologies</a></li>
       <li><a href="#mentors">Mentors</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#daftar" class="nav-cta">Join Free</a>
+      <li><a href="#daftar" class="nav-cta">Join Free</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <span class="hero-tag">// The Most Complete Web3 Learning Program</span>
+
+    <h1>
+      Master
+      <span class="highlight glitch" data-text="Web3 Technology">Web3 Technology</span>
+      From Scratch
+    </h1>
+
+    <p class="hero-sub">
