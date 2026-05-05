@@ -1,786 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Web3Academy — Learn the Digital Future</title>
-  <style>
-    :root {
-      --bg: #080c12;
-      --surface: #0e1420;
-      --surface2: #141c2e;
-      --border: #1e2d47;
-      --accent: #00f5a0;
-      --accent2: #0090ff;
-      --accent3: #f5a623;
-      --text: #f0f4ff;
-      --muted: #9ab0d0;
-      --glow: 0 0 40px rgba(0,245,160,0.15);
-      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-      --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web3Academy</title>
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0f17;
+    color: #ffffff;
+    line-height: 1.6;
+  }
 
-    html { scroll-behavior: smooth; }
+  header {
+    padding: 20px;
+    background: #111827;
+    text-align: center;
+  }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+  header h1 {
+    margin: 0;
+    color: #00d084;
+  }
 
-    /* Grid background */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,245,160,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,245,160,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
 
-    /* ===== NAV ===== */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 3rem;
-      background: rgba(8,12,18,0.85);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
+  nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+  }
 
-    .logo {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      text-decoration: none;
-    }
-    .logo span { color: var(--text); }
+  nav a:hover {
+    color: #00d084;
+  }
 
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+  section {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
 
-    .nav-cta {
-      background: var(--accent);
-      color: var(--bg) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 4px;
-      font-weight: 700 !important;
-      transition: box-shadow 0.2s, transform 0.2s !important;
-    }
-    .nav-cta:hover {
-      box-shadow: 0 0 20px rgba(0,245,160,0.4) !important;
-      transform: translateY(-1px);
-      color: var(--bg) !important;
-    }
+  h2 {
+    color: #00d084;
+    margin-bottom: 10px;
+  }
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 8rem 3rem 5rem;
-      position: relative;
-      z-index: 1;
-    }
+  .card {
+    background: #111827;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
 
-    .hero-tag {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      border: 1px solid rgba(0,245,160,0.3);
-      padding: 0.35rem 0.8rem;
-      border-radius: 2px;
-      margin-bottom: 2rem;
-      display: inline-block;
-      animation: fadeInUp 0.6s ease both;
-    }
+  .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #00d084;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
 
-    .hero h1 {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      max-width: 800px;
-      animation: fadeInUp 0.7s 0.1s ease both;
-    }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #111827;
+    font-size: 13px;
+    color: #aaa;
+  }
 
-    .hero h1 .highlight {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: block;
-    }
+  .founder {
+    text-align: center;
+  }
 
-    .hero-sub {
-      margin-top: 1.8rem;
-      font-size: 1.15rem;
-      color: #b0c4e8;
-      max-width: 520px;
-      line-height: 1.8;
-      animation: fadeInUp 0.7s 0.2s ease both;
-    }
+  .founder img {
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
 
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2.8rem;
-      animation: fadeInUp 0.7s 0.3s ease both;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg);
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: box-shadow 0.3s, transform 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .btn-primary:hover {
-      box-shadow: 0 0 30px rgba(0,245,160,0.45);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: var(--accent2);
-      background: rgba(0,144,255,0.08);
-    }
-
-    /* Floating orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb-1 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(0,245,160,0.12), transparent 70%);
-      top: -100px; right: -100px;
-      animation: float 8s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(0,144,255,0.1), transparent 70%);
-      bottom: 0; left: 30%;
-      animation: float 10s 2s ease-in-out infinite;
-    }
-
-    /* Stats bar */
-    .stats-bar {
-      display: flex;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
-      animation: fadeInUp 0.7s 0.4s ease both;
-    }
-    .stat-item { display: flex; flex-direction: column; gap: 0.3rem; }
-    .stat-num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-    }
-
-    /* ===== SECTIONS ===== */
-    section { position: relative; z-index: 1; }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .section-tag {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .section-sub {
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin-inline: auto;
-      line-height: 1.75;
-    }
-
-    /* ===== TRACK / KURIKULUM ===== */
-    .tracks {
-      padding: 6rem 3rem;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tracks-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5px;
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .track-card {
-      background: var(--surface);
-      padding: 2.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
-    }
-    .track-card:hover { background: var(--surface2); }
-    .track-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--accent);
-      transition: height 0.3s;
-    }
-    .track-card:hover::before { height: 100%; }
-
-    .track-icon {
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-    .track-level {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-    .track-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      letter-spacing: -0.01em;
-    }
-    .track-card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    .track-topics {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .topic-tag {
-      font-size: 0.7rem;
-      font-family: var(--font-mono);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 0.25rem 0.55rem;
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .track-card:hover .topic-tag {
-      border-color: rgba(0,245,160,0.3);
-      color: var(--text);
-    }
-
-    /* ===== KURIKULUM ROADMAP ===== */
-    .roadmap {
-      padding: 6rem 3rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .timeline {
-      position: relative;
-      padding-left: 2.5rem;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .timeline-item.visible { opacity: 1; transform: translateX(0); }
-
-    .timeline-dot {
-      position: absolute;
-      left: -2.5rem;
-      top: 0.3rem;
-      width: 12px; height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 12px rgba(0,245,160,0.6);
-      translate: -5.5px 0;
-    }
-
-    .timeline-week {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 0.4rem;
-    }
-    .timeline-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .timeline-desc {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ===== TOOLS / TEKNOLOGI ===== */
-    .tech-section {
-      padding: 5rem 3rem;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .tech-marquee {
-      overflow: hidden;
-      margin-top: 3rem;
-      position: relative;
-    }
-    .tech-marquee::before,
-    .tech-marquee::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 150px;
-      z-index: 2;
-    }
-    .tech-marquee::before { left: 0; background: linear-gradient(to right, var(--surface), transparent); }
-    .tech-marquee::after { right: 0; background: linear-gradient(to left, var(--surface), transparent); }
-
-    .tech-track {
-      display: flex;
-      gap: 1.5rem;
-      animation: marquee 25s linear infinite;
-      width: max-content;
-    }
-
-    .tech-item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--muted);
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .tech-item:hover {
-      border-color: var(--accent2);
-      color: var(--text);
-    }
-
-    /* ===== MENTOR ===== */
-    .mentors {
-      padding: 6rem 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .mentors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .mentor-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      border-radius: 4px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .mentor-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(0,245,160,0.08);
-    }
-
-    .mentor-avatar {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      margin: 0 auto 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      background: var(--surface2);
-      border: 2px solid var(--border);
-    }
-    .mentor-name {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    .mentor-role {
-      font-size: 0.75rem;
-      color: var(--accent);
-      font-family: var(--font-mono);
-      margin-bottom: 0.8rem;
-    }
-    .mentor-bio {
-      font-size: 0.92rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ===== FAQ ===== */
-    .faq {
-      padding: 6rem 3rem;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-    }
-
-    .faq-inner { max-width: 700px; margin: 0 auto; }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: left;
-      padding: 1.4rem 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: color 0.2s;
-    }
-    .faq-question:hover { color: var(--accent); }
-    .faq-question .icon {
-      font-size: 1.3rem;
-      color: var(--accent);
-      transition: transform 0.3s;
-    }
-    .faq-item.open .faq-question .icon { transform: rotate(45deg); }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    .faq-item.open .faq-answer { max-height: 300px; }
-    .faq-answer p {
-      padding-bottom: 1.4rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ===== CTA FOOTER ===== */
-    .cta-section {
-      padding: 8rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, rgba(0,245,160,0.06), transparent 65%);
-      pointer-events: none;
-    }
-    .cta-section h2 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.1;
-    }
-    .cta-section p {
-      color: var(--muted);
-      font-size: 1rem;
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer-logo {
-      font-family: var(--font-mono);
-      font-weight: 700;
-      color: var(--accent);
-      font-size: 0.9rem;
-    }
-    .footer-copy {
-      font-size: 0.78rem;
-      color: var(--muted);
-      font-family: var(--font-mono);
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-
-    /* Glitch text */
-    .glitch {
-      position: relative;
-    }
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 2px; top: 0;
-      color: var(--accent2);
-      clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-      opacity: 0;
-      animation: glitch 4s 2s infinite;
-    }
-    @keyframes glitch {
-      0%, 90%, 100% { opacity: 0; transform: translateX(0); }
-      92% { opacity: 0.8; transform: translateX(-3px); }
-      94% { opacity: 0.8; transform: translateX(3px); }
-      96% { opacity: 0; }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 6rem 1.5rem 3rem; }
-      .stats-bar { gap: 1.5rem; flex-wrap: wrap; }
-      .tracks, .roadmap, .tech-section, .mentors, .faq, .cta-section { padding: 4rem 1.5rem; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
-    /* ===== FOUNDER CARD ===== */
-    .founder-card {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 3rem;
-      max-width: 780px;
-      width: 100%;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .founder-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-    .founder-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(0,245,160,0.08);
-    }
-    .founder-avatar-wrap {
-      flex-shrink: 0;
-      width: 110px; height: 110px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 24px rgba(0,245,160,0.25);
-    }
-    .founder-avatar-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .founder-avatar-fallback {
-      width: 100%; height: 100%;
-      background: var(--surface2);
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-    .founder-info { flex: 1; }
-    .founder-name {
-      font-family: var(--font-mono);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.3rem;
-    }
-    .founder-role {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
-    }
-    .founder-bio {
-      font-size: 0.97rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-    .founder-x-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #000;
-      color: #fff;
-      border: 1px solid #333;
-      padding: 0.55rem 1.2rem;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      font-family: var(--font-mono);
-      text-decoration: none;
-      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-    }
-    .founder-x-btn:hover {
-      background: #1a1a1a;
-      box-shadow: 0 0 16px rgba(255,255,255,0.1);
-      transform: translateY(-1px);
-    }
-    @media (max-width: 600px) {
-      .founder-card { flex-direction: column; text-align: center; padding: 2rem; }
-      .founder-avatar-wrap { margin: 0 auto; }
-    }
-
-  </style>
+</style>
 </head>
+
 <body>
 
-  <!-- NAV -->
+<header>
+  <h1>Web3Academy</h1>
   <nav>
-    <a class="logo" href="#">W3<span>Academy</span></a>
-    <ul class="nav-links">
-      <li><a href="#tracks">Curriculum</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#tech">Technologies</a></li>
-      <li><a href="#mentors">Mentors</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#daftar" class="nav-cta">Join Free</a></li>
-    </ul>
+    <a href="#about">About</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#founder">Founder</a>
   </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
+<section id="about">
+  <h2>Learn Web3 From Scratch</h2>
+  <p>
+    Learn blockchain, smart contracts, DeFi, and Web3 development from beginner to advanced level.
+    Simple, structured, and beginner-friendly.
+  </p>
+  <a href="#" class="btn">Start Learning</a>
+</section>
 
-    <span class="hero-tag">// The Most Complete Web3 Learning Program</span>
+<section id="curriculum">
+  <h2>Curriculum</h2>
 
-    <h1>
-      Master
-      <span class="highlight glitch" data-text="Web3 Technology">Web3 Technology</span>
-      From Scratch
-    </h1>
+  <div class="card">
+    <h3>Beginner</h3>
+    <p>Blockchain basics, wallets, and crypto fundamentals.</p>
+  </div>
 
-    <p class="hero-sub">
+  <div class="card">
+    <h3>Intermediate</h3>
+    <p>Smart contracts, Solidity, and DeFi concepts.</p>
+  </div>
+
+  <div class="card">
+    <h3>Advanced</h3>
+    <p>Build dApps, NFT projects, and Web3 applications.</p>
+  </div>
+</section>
+
+<section id="roadmap">
+  <h2>12-Week Roadmap</h2>
+
+  <div class="card">
+    <p><strong>Week 1–2:</strong> Blockchain Basics</p>
+    <p><strong>Week 3–4:</strong> Smart Contracts</p>
+    <p><strong>Week 5–6:</strong> Security</p>
+    <p><strong>Week 7–8:</strong> DeFi</p>
+    <p><strong>Week 9–10:</strong> Web3 Integration</p>
+    <p><strong>Week 11–12:</strong> Final Project</p>
+  </div>
+</section>
+
+<section id="founder">
+  <h2>Founder</h2>
+
+  <div class="card founder">
+    <img src="https://unavatar.io/twitter/ekap_fariz" alt="Founder">
+    <h3>@ekap_fariz</h3>
+    <p>Founder of Web3Academy. Passionate about blockchain education and building the future of decentralized technology.</p>
+
+    <a href="https://x.com/ekap_fariz" target="_blank" class="btn">
+      Follow on X
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Web3Academy — Learn, Build, Grow
+</footer>
+
+</body>
+</html>
