@@ -682,85 +682,102 @@
       .tracks, .roadmap, .tech-section, .mentors, .faq, .cta-section { padding: 4rem 1.5rem; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
     }
+    /* ===== FOUNDER CARD ===== */
+    .founder-card {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+      max-width: 780px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .founder-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+    .founder-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 40px rgba(0,245,160,0.08);
+    }
+    .founder-avatar-wrap {
+      flex-shrink: 0;
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 24px rgba(0,245,160,0.25);
+    }
+    .founder-avatar-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .founder-avatar-fallback {
+      width: 100%; height: 100%;
+      background: var(--surface2);
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .founder-info { flex: 1; }
+    .founder-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .founder-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .founder-bio {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .founder-x-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #000;
+      color: #fff;
+      border: 1px solid #333;
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: 'IBM Plex Mono', monospace;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .founder-x-btn:hover {
+      background: #1a1a1a;
+      box-shadow: 0 0 16px rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 600px) {
+      .founder-card { flex-direction: column; text-align: center; padding: 2rem; }
+      .founder-avatar-wrap { margin: 0 auto; }
+    }
+
   </style>
 </head>
 <body>
 
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <!-- NAV -->
-  <nav>
-    <a class="logo" href="#">W3<span>Academy</span></a>
-    <ul class="nav-links">
-      <li><a href="#tracks">Curriculum</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#tech">Technologies</a></li>
-      <li><a href="#mentors">Mentors</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#daftar" class="nav-cta">Join Free</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-
-    <span class="hero-tag">// The Most Complete Web3 Learning Program</span>
-
-    <h1>
-      Master
-      <span class="highlight glitch" data-text="Web3 Technology">Web3 Technology</span>
-      From Scratch
-    </h1>
-
-    <p class="hero-sub">
-      Learn blockchain, smart contracts, DeFi, NFTs, and the entire Web3 ecosystem. From beginner to professional — with a structured curriculum and experienced mentors.
-    </p>
-
-    <div class="hero-actions">
-      <a href="#daftar" class="btn-primary">
-        Start Learning →
-      </a>
-      <a href="#tracks" class="btn-secondary">View Curriculum</a>
-    </div>
-
-    <div class="stats-bar">
-      <div class="stat-item">
-        <span class="stat-num">5.2K+</span>
-        <span class="stat-label">Active Students</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">48</span>
-        <span class="stat-label">Modules</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">12</span>
-        <span class="stat-label">Expert Mentors</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">94%</span>
-        <span class="stat-label">Completion Rate</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRACKS -->
-  <section class="tracks" id="tracks">
-    <div class="section-header">
-      <span class="section-tag">// 03 Learning Tracks</span>
-      <h2 class="section-title">Choose Your Learning Path</h2>
-      <p class="section-sub">Curriculum designed step by step — from foundations to building real Web3 applications.</p>
-    </div>
-
-    <div class="tracks-grid">
-      <div class="track-card">
-        <span class="track-icon">🌱</span>
-        <div class="track-level">// Track 01 · Beginner</div>
-        <h3>Blockchain Foundations</h3>
-        <p>Understand how blockchain works, core cryptography, and the Web3 ecosystem before diving deeper.</p>
-        <div class="track-topics">
-          <span class="topic-tag">Blockchain 101</span>
-          <sp
+  <div class="cursor-ring" id="curs
